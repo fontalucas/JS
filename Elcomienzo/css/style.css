@@ -1,0 +1,163 @@
+.menu {
+    background-image: url(../imagenes/menu.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%; }
+.menu h4 {
+    font-size: 20px;}
+.menu p {
+    font-size: 15px;}
+
+.contenedor1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 15% 90%;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    width: 80vw;
+    margin: auto;
+    height: fit-content;
+    margin-top: 5rem;  
+}  
+.lineas__clasica { grid-area: 1 / 2 / 2 / 3; 
+    margin-top: 1rem;}
+.maxima { grid-area: 2 / 1 / 3 / 2; }
+.victoria { grid-area: 2 / 2 / 3 / 3; }
+.isabel { grid-area: 2 / 3 / 3 / 4; }
+
+.contenedor2 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 15% 100%;
+    grid-template-areas: 
+        "lineaGolden lineaGolden lineaCheese lineaCheese lineaHomenaje lineaHomenaje"
+        "reyarturo magnus william charlotte smokeshack friedonion";
+    width: 100%;
+    margin: auto;
+    margin-top: 8rem;
+}
+.contenedor2 .lineaGolden, .lineaCheese, .lineaHomenaje {
+width: 100%;
+justify-content: center;
+height: fit-content;
+margin: auto;
+
+}
+.contenedor2 .reyarturo .magnus .william .ccharlotte .smokeshack .friedonion {
+margin: 1rem 1rem;    
+}        
+.lineaGolden { grid-area: lineaGolden; }
+.lineaCheese { grid-area: lineaCheese; }
+.lineaHomenaje { grid-area: lineaHomenaje; }
+.reyarturo { grid-area: reyarturo; }
+.magnus { grid-area: magnus; }
+.william { grid-area: william; }
+.charlotte { grid-area: charlotte; }
+.smokeshack { grid-area: smokeshack; }
+.friedonion { grid-area: friedonion; }
+
+.card {
+    background-color: #00000037 !important; /* me pisa el boostrap */
+    border: solid 1px white !important;
+    margin: auto;
+    margin-top: 0%;
+    width: 12rem;}
+.card-img-top {
+    width: 10rem;
+    height: 10rem;
+    }
+.menu__subt {
+    margin-top: 10px;
+}
+
+.cabecera__img {    
+    border-radius: 20%;
+    width: 150px;
+    height: 150px;  
+    display: flex;
+    align-items: center;
+    margin: 5px ;
+    margin: auto;   
+}
+
+.navbar {
+    border: solid 1px black;
+    background-color: #0000008a;
+    justify-content: center;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;} 
+.navbar-nav {
+        margin: auto;
+        justify-content: space-evenly;
+        width: 80%; }
+
+.navbar a {
+    color: white !important; }
+
+footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;}
+.footer__redes {
+    background-color: rgba(0, 0, 0, 0.544);
+    margin-bottom: 0;
+    display: flex;
+    justify-content: end; 
+    }
+.footer__lista__links {
+    display: inline-block;
+    margin: 10px; }
+.footer__lista__links a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin: auto;
+}
+
+.iconos {
+    width: 30px;
+    height: 30px;
+    margin: auto;    
+}
+
+h2 /* SUBTITULO MENU */{
+    text-align: center;
+    border: groove 2px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    margin: auto;
+    width: 200px;
+    font-size: 20pt !important;
+    font-family: 'Indie Flower';
+    border-radius: 5px;}
+h3 /* TITULOS */{
+    text-align: center;
+    border: groove 2px black;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.277);
+    margin: auto;
+    width: 100%;
+    font-size: 28pt !important;
+    font-family: 'Indie Flower', cursive;
+    margin-top: 3rem !important;}
+h4 /* SUBTITULOS */{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.52);
+    border-radius: 5%;
+    width: max-content;
+    padding: 2%;
+    color: #ffc400;
+    font-family: "Montserrat";
+    margin: auto;
+    }
+
+p {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.926);
+    
+}
+

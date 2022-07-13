@@ -1,4 +1,4 @@
-let numero = parseInt(prompt("Ingrese un numero"));
+/* let numero = parseInt(prompt("Ingrese un numero"));
 
 for (let i = 1; i <=10; i++){
     let multi = numero * i;
@@ -6,7 +6,8 @@ for (let i = 1; i <=10; i++){
 }
 
 let pedidos = 0;
-while(cantidadDePedidos <= 15){
+
+while( pedidos <= 15){
     let cantidadDePedidos = parseInt(prompt("Ingrese su numero de pedido")); 
     pedidos++;}
     
@@ -14,7 +15,7 @@ while(cantidadDePedidos <= 15){
         console.log("Su pedido esta confirmado");}
     else{
         console.log("Se ha alcanzado el limite de pedidos");
-    }
+    } */
 
 /*
 const edadPersona = 19;
@@ -48,39 +49,51 @@ console.log(promedio); */ /* es igual a 5 */
     console.log("Aprobaste, te sacaste un " + promedio);}
     else {
         console.log("No aprobaste, tu nota fue un " + promedio);  
+    } */
+
+
+function agregarAlCarrito(producto, stock, precio) {
+    const controlDeStock = tenemosStock(stock)
+    const totalDeLaCompra = sumar(precio)
+    if(controlDeStock == "Tenemos Stock") {
+    console.log("Prodcuto agregado al carrito" + producto) }
+    else {
+        console.log("No tenemos stock de" + producto); 
     }
-
-
-
-function agregarAlCarrito(producto, stock) {
-    console.log("Prodcuto agregado al carrito" + producto);
+    if(totalDeLaCompra == "resultado");
+    
 }
-
-function tenemosStock(stock) {
-    if(sotck > 0) {
-        return "Tenemos Stock";
-    }else {
-        return "Mo tenemos stock";
+    function tenemosStock(stock) {
+        if(stock > 0) {
+            return ("Tenemos Stock");
+            
+        }else {
+            return ("No tenemos stock");
+        }
+        
     }
+let resultado = 0;
+    function sumar (primerNumero, segundoNumero, tercerNumero, cuartoNumero) {
+        resultado = primerNumero + segundoNumero + tercerNumero + cuartoNumero;
+    } 
+agregarAlCarrito(" Rey Arturo", 15, 900);
+agregarAlCarrito(" Rey Arturo", 14, 900);
+agregarAlCarrito(" Maxima", 0, 800);
+agregarAlCarrito(" William", 10, 500);
+agregarAlCarrito(" Magnus", 1, 500);
 
-}
+sumar(900, 900, 500, 500);
 
-agregarAlCarrito("Rey Arturo");
-agregarAlCarrito("Maxima");
-agregarAlCarrito("William");
-agregarAlCarrito("Magnus");
- */
-/* 
-const producto = Burger;
-function Burger(nombreParametro, stockParametro, precio) { // Funcion constructora
-    this.nombreParametro = "";
-    this.stockParametro = 10;
-    this.precio = 800;
+console.log("Total de la compra " + "$" + resultado);
 
-} */
 
-/* const reyarturo = new Burger("Rey Arturo", 50, 850);
-const maxima= new Burger("Maxima", 15, 950);
-const burger3 = new Burger();
-const burger4 = new Burger();
-const burger5 = new Burger(); */
+
+/* const producto = Burger;
+function Burger(_nombre, _stock, _precio) { // Funcion constructora
+    this.nombre = " Rey Arturo";
+    this.stock = 0;
+    this.precio = 800; }*/
+
+
+/* const reyarturo = new Burger(" Rey Arturo", 50, 850);
+const maxima= new Burger("Maxima", 15, 950); */

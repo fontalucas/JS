@@ -1,21 +1,3 @@
-/* let numero = parseInt(prompt("Ingrese un numero"));
-
-for (let i = 1; i <=10; i++){
-    let multi = numero * i;
-    console.log(numero + " x " + i + " = " + multi);   
-}
-
-let pedidos = 0;
-
-while( pedidos <= 15){
-    let cantidadDePedidos = parseInt(prompt("Ingrese su numero de pedido")); 
-    pedidos++;}
-    
-    if(cantidadDePedidos < 15){
-        console.log("Su pedido esta confirmado");}
-    else{
-        console.log("Se ha alcanzado el limite de pedidos");
-    } */
 
 /*
 const edadPersona = 19;
@@ -52,17 +34,21 @@ console.log(promedio); */ /* es igual a 5 */
     } */
 
 
+
+const carrito = [];
+
 function agregarAlCarrito(producto, stock, precio) {
     const controlDeStock = tenemosStock(stock)
     const totalDeLaCompra = sumar(precio)
+    carrito.push(producto);
+    console.log(carrito);
     if(controlDeStock == "Tenemos Stock") {
-    console.log("Prodcuto agregado al carrito" + producto) }
-    else {
-        console.log("No tenemos stock de" + producto); 
+        console.log("Prodcuto agregado al carrito" + producto) }
+        else {
+            console.log("No tenemos stock de" + producto); 
+        }
+        if(totalDeLaCompra == resultado);
     }
-    if(totalDeLaCompra == "resultado");
-    
-}
     function tenemosStock(stock) {
         if(stock > 0) {
             return ("Tenemos Stock");
@@ -72,11 +58,11 @@ function agregarAlCarrito(producto, stock, precio) {
         }
         
     }
-let resultado = 0;
+    let resultado = 0;
     function sumar (primerNumero, segundoNumero, tercerNumero, cuartoNumero) {
         resultado = primerNumero + segundoNumero + tercerNumero + cuartoNumero;
     } 
-agregarAlCarrito(" Rey Arturo", 15, 900);
+agregarAlCarrito(" Rey Arturo", 15, 9008);
 agregarAlCarrito(" Rey Arturo", 14, 900);
 agregarAlCarrito(" Maxima", 0, 800);
 agregarAlCarrito(" William", 10, 500);
@@ -86,6 +72,14 @@ sumar(900, 900, 500, 500);
 
 console.log("Total de la compra " + "$" + resultado);
 
+function borrarElementoDelCarrito(nombreDelProducto){
+    const index = carrito.findIndex(producto => producto == nombreDelProducto);
+    console.log(index);
+    carrito.splice(index, 1);
+    console.log(carrito);
+}
+
+borrarElementoDelCarrito(" Rey Arturo")
 
 
 /* const producto = Burger;

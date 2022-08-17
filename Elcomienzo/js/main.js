@@ -49,8 +49,8 @@ burgers.forEach((burger) => {
         Swal.fire(
             'Genial!',
             'Prodcuto agregado al carrito',
-            'success'
-          )
+            'success',
+        )
         localStorage.setItem("carrito", JSON.stringify(carrito));
         document.getElementById("cart-total").innerHTML = `${carrito.length} - $${total}`;
         console.log(carrito);

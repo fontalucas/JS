@@ -1,0 +1,19 @@
+[
+    
+    {"id":1, "nombre": "Rey Arturo", "stock": 15, "precio": 900, "img": "../imagenes/reyarturo.jpg", "category": "linea Golden"},
+    {"id":2, "nombre": "Magnus", "stock": 1, "precio": 500, "img": "../imagenes/magnus.jpg", "category": "linea Golden"},
+    
+    
+    {"id":3, "nombre": "Maxima", "stock": 0, "precio": 850, "img": "../imagenes/MAXIMA.jpg", "category": "Linea clasica"},
+    {"id":4, "nombre": "Isabel", "stock": 0, "precio": 850, "img": "../imagenes/isabel.jpg", "category": "Linea clasica"},
+    {"id":5, "nombre": "Victoria", "stock": 0, "precio": 850, "img": "../imagenes/victoria.jpg", "category": "Linea clasica"},
+    
+    
+    {"id":6, "nombre": "William", "stock": 10, "precio": 500, "img": "../imagenes/william.jpg", "category": "Linea Cheese"},
+    {"id":7, "nombre": "Charlotte", "stock": 10, "precio": 500, "img": "../imagenes/isabel.jpg", "category": "Linea Cheese"},
+    
+    
+    {"id":8, "nombre": "Smoke Shack", "stock": 15, "precio": 1000, "img": "../imagenes/smokeshacj.jpg", "category": "Linea Homenaje"},
+    {"id":9, "nombre": "Fried Onion", "stock": 15, "precio": 900, "img": "../imagenes/friedonion.jpg", "category": "Linea Homenaje"}
+
+]

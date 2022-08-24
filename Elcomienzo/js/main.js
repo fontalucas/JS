@@ -1,51 +1,77 @@
 
+//Array del carrito vacio.
+const carrito = JSON.parse(localStorage.getItem("carrito")) ?? [];    
 
-
-
-const carrito = JSON.parse(localStorage.getItem("carrito")) ?? [];
+//variable para sumar y acumular el total del carrito.
 const total = carrito.reduce((acumulador, burger) => acumulador + burger.precio, 0);
 document.getElementById("cart-total").innerHTML = `${carrito.length} - $${total}`;
 
 
-function mostrarCarrito(){
-    carrito.forEach((burger) =>
-    {document.getElementById("cardsModal").innerHTML +=
-    `<div>
-    <p style="color:black; display: flex; flex-direction: row; margin: auto; justifyContent: center; ${burger.nombre}
-    <img src="${burger.img}" style="width:80px">
-    $${burger.precio}</p>
-    <button>Eliminar</button>
-   </div>`}) }
+/* for (const nodoHTML of document.getElementsByClassName('filtrar-categoria')){
+    nodoHTML.onclick = (event) => {
+        const categoria = event.target.getAttribute('data-categoria')
+        filtrarProductosPorCategoria(categoria)
+    }
+} */
 
-const burgers = [
-    {id:1, nombre: "Rey Arturo", stock: 15, precio: 900},
-    {id:2, nombre: "Maxima", stock: 0, precio: 850, img: src="../imagenes/MAXIMA.jpg"},
-    {id:3, nombre: "William", stock: 10, precio: 500},
-    {id:4, nombre: "Magnus", stock: 1, precio: 500},
-    {id:5, nombre: "Smoke Shack", stock: 15, precio: 1000, img: src="../imagenes/smokeshacj.jpg"},
-];
+/* function filtrarProductosPorCategoria(categoria) {
+    document.getElementById("cards").innerHTML = "";
+    const productosFiltrados = burgers.filter((burger) => burger.category === categoria);
 
+    productosFiltrados.forEach((burger) => {
+        const idButton = `add-cart${burger.id}` 
+        document.getElementById("cards").innerHTML += `<div class="card">
+            <div class="precio">
+                <p>$${burger.precio}</p>
+            </div>
+            <img src="${burger.img}">
+            <h4>${burger.nombre}</h4>
+            <a class="boton" id="${idButton}" data-id="${burger.id}">Añadir Al Carrito</a>
+        </div>`;
+      document.getElementById('cards').innerHTML = acumulador;
+    })
+} */
 
-burgers.forEach((burger) => {
-    const idButton = `add-cart${burger.id}`
-    document.getElementById("seccion-card").innerHTML += 
-    `<div class="card maxima" style="width: 14rem;">
-    <img src="${burger.img}" class="card-img-top">
-    <div class="card-body">
-        <h4 class="card-title">${burger.nombre}</h4>
+//Productos
+const productos = []
+console.log(productos);
+
+//validacion de stock.
+const controlDeStock = (producto) => {
+    if (producto.stock > 0) {
+        console.log("Prodcuto agregado al carrito")
+    }
+    else {
+        Swal.fire(
+            'Ups...',
+            'No tenemos stock del producto',
+            'error'
+        )
+        }
+}
+    
+//Generador de cards para todos los productos.
+fetch("productos.json")
+    .then((response) => response.json())
+    .then((productos) => {
+        productos.forEach((producto) => {
+        const idButton = `add-cart${producto.id}`
+        document.getElementById("cards").innerHTML += 
+        `<div class="card" style="width: 14rem;">
+        <img src="${producto.img}" class="card-img-top">
+        <div class="card-body">
+        <h4 class="card-title">${producto.nombre}</h4>
         <p class="card-text">Pan kustom, burger, cheddar x2, panceta x2, huevo, cebolla crispy y alioli</p>
         <button class="btn btn-primary" style="display: flex; margin: auto; background-color: rgba(255, 166, 0, 0.416);" id="${idButton}">Agregar al carrito</button>
-    </div>
-</div>`;
-
-
-
+        </div>
+        </div>`;       
+    })
 })
-
-burgers.forEach((burger) => {
-    const idButton = `add-cart${burger.id}`
+    //Boton agregar carrito.
+productos.forEach((producto) => {
+    const idButton = `add-cart${producto.id}`
     document.getElementById(idButton).addEventListener("click", () => {  
-        carrito.push(burger);
+        carrito.push(producto);
         Swal.fire(
             'Genial!',
             'Prodcuto agregado al carrito',
@@ -53,14 +79,50 @@ burgers.forEach((burger) => {
         )
         localStorage.setItem("carrito", JSON.stringify(carrito));
         document.getElementById("cart-total").innerHTML = `${carrito.length} - $${total}`;
-        console.log(carrito);
+        controlDeStock(producto)
+
     })
 });
 
 
+
+//Funcion para agergar resumen del carrito.
+function mostrarCarrito(){
+    carrito.forEach((productos) =>
+    {document.getElementById("card-carrito").innerHTML +=
+    `<div style="margin: auto;">
+    <img src="${producto.img}"</img>
+    <p>${producto.nombre}
+    $${producto.precio}</p>
+    <button id="${eButton}" style="display: flex; margin: auto; margin-botton: 5px;">Eliminar</button>
+   </div>`}) 
+}
+
+function eliminarDelCarrito(productoId) {
+    const index = productos.findIndex((borrar) => borrar.id === productoId)
+    if (index != -1) {
+        productos.splice(index, 1)
+        localStorage.setItem("carrito", JSON.stringify(productos))
+        }
+        document.getElementById(eButton).addEventListener("click", () => {  
+            Swal.fire(
+                'Genial!',
+                'Borraste el producto del carrito',
+                'success',)
+        }) 
+        
+    }
+
+
+
+
+
+
+
+   
 /* buscador */
 
-/* const navegacionBurgers = ["Clasicas", "Golden", "Cheese", "Homenaje"] */
+/* const navegacionproductos = ["Clasicas", "Golden", "Cheese", "Homenaje"] */
 
 /* for(let desde = 0; desde < navegacionBurgers.length; desde++) {
     document.getElementById("navegacion-burgers").innerHTML += /* aca se pone el buscador que esta en el HTML ${navegacionBurgers[desde]} */    

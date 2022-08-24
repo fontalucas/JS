@@ -11,7 +11,9 @@ body {
     font-size: 20px;}
 .menu p {
     font-size: 15px;}
-
+.dropdown-menu {
+    background-color: #00000037 !important;
+}
 .contenedor1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

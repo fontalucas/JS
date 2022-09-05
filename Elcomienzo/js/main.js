@@ -46,7 +46,7 @@ const controlDeStock = (producto) => {
             'Ups...',
             'No tenemos stock del producto',
             'error'
-        )
+        )        
         }
 }
     
@@ -66,60 +66,82 @@ fetch("productos.json")
         </div>
         </div>`;       
     })
-})
+
     //Boton agregar carrito.
-productos.forEach((producto) => {
-    const idButton = `add-cart${producto.id}`
-    document.getElementById(idButton).addEventListener("click", () => {  
-        carrito.push(producto);
-        Swal.fire(
+    productos.forEach((producto) => {
+        const idButton = `add-cart${producto.id}`
+        document.getElementById(idButton).addEventListener("click", () => {  
+            carrito.push(producto);
+            Swal.fire(
             'Genial!',
             'Prodcuto agregado al carrito',
             'success',
         )
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        document.getElementById("cart-total").innerHTML = `${carrito.length} - $${total}`;
-        controlDeStock(producto)
-
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            document.getElementById("cart-total").innerHTML = `${carrito.length} - $${total}`;
+            controlDeStock(producto)
+        })
     })
-});
-
+})
 
 
 //Funcion para agergar resumen del carrito.
 function mostrarCarrito(){
-    carrito.forEach((productos) =>
-    {document.getElementById("card-carrito").innerHTML +=
-    `<div style="margin: auto;">
+    carrito.forEach((producto) => { 
+    const eButton = `eliminar-cart${producto.id}`
+    document.getElementById("card-carrito").innerHTML +=
+    `<div style="margin: auto; display: flex;">
     <img src="${producto.img}"</img>
-    <p>${producto.nombre}
-    $${producto.precio}</p>
-    <button id="${eButton}" style="display: flex; margin: auto; margin-botton: 5px;">Eliminar</button>
-   </div>`}) 
+    <h6 class="card-title">${producto.nombre}</h6>
+    <h6 class="card-title">$${producto.precio}</h6>
+    <button class="eButton btn btn-danger btn-small fa fa-trash" style="display: flex; margin: auto; margin-botton: 5px;" onclick="return eliminar(${producto.id})" >Eliminar</button> 
+</div>
+<hr>`
+    }) 
 }
 
-function eliminarDelCarrito(productoId) {
-    const index = productos.findIndex((borrar) => borrar.id === productoId)
-    if (index != -1) {
-        productos.splice(index, 1)
-        localStorage.setItem("carrito", JSON.stringify(productos))
+function eliminar(idDelProducto) {
+    const eliminarProducto = carrito.findIndex((borrar) => borrar.id === idDelProducto)
+    carrito.splice(eliminarProducto, 1)
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+        title: 'Estas seguro?',
+        text: "Eliminaras el producto del carrito!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, quitarlo!',
+        cancelButtonText: 'Cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Eliminado!',
+                'Eliminaste el producto.',
+            'success'
+            )
+            setTimeout('window.location.reload()',2000);
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado!',
+            'Casi casi.. tu comida esta a salvo :)',
+            'error'
+          )
         }
-        document.getElementById(eButton).addEventListener("click", () => {  
-            Swal.fire(
-                'Genial!',
-                'Borraste el producto del carrito',
-                'success',)
-        }) 
-        
-    }
-
-
-
-
-
-
-
-   
+      })
+      return (false)
+                }
+    
 /* buscador */
 
 /* const navegacionproductos = ["Clasicas", "Golden", "Cheese", "Homenaje"] */
@@ -192,5 +214,4 @@ function borrarElementoDelCarrito(nombreDelProducto){
 }
 aceptarPedido();
 borrarElementoDelCarrito("Rey Arturo") */
-
 

@@ -1,12 +1,10 @@
 body {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-
-}
-.menu {
     background-image: url(../imagenes/menu.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%; }
+
 .menu h4 {
     font-size: 20px;}
 .menu p {
@@ -14,6 +12,7 @@ body {
 .dropdown-menu {
     background-color: #00000037 !important;
 }
+
 .contenedor1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -168,3 +167,15 @@ p {
     
 }
 
+.swal2-popup {
+    background-color: rgba(0, 0, 0, 0.918) !important;
+}
+.swal2-html-container {
+    color: white !important;
+}
+.btn-success {
+    margin: 10px;
+}
+.swal2-title {
+    margin: auto !important;
+}
